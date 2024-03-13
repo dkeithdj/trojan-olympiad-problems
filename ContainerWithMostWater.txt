@@ -21,6 +21,13 @@ Example 2:
 Input: height = [1,1]
 Output: 1
  
+Test Cases (Input):
+[1,8,6,2,5,4,8,3,7]
+[1,1]
+
+Test Cases (Output):
+49
+1
 
 Constraints:
 

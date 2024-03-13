@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+// correct
 public class ContainerWithMostWater {
 
   public static int maxArea(List<Integer> A) {
@@ -27,13 +28,15 @@ public class ContainerWithMostWater {
   }
 
   public static void main(String[] args) throws IOException {
-    Scanner infile = new Scanner(new FileReader("ContainerWithMostWater.in"));
-    BufferedWriter writer = new BufferedWriter(new FileWriter("ContainerWithMostWater.ans"));
+    Scanner infile = new Scanner(System.in);
+    // Scanner infile = new Scanner(new FileReader("ContainerWithMostWater.in"));
+    // BufferedWriter writer = new BufferedWriter(new
+    // FileWriter("ContainerWithMostWater.ans"));
     while (infile.hasNext()) {
       List<Integer> parsedArray = parseStringToIntArray(infile.nextLine());
-      // System.out.println(maxArea(parsedArray));
-      writer.write(maxArea(parsedArray));
-      writer.newLine();
+      System.out.println(maxArea(parsedArray));
+      // writer.write(maxArea(parsedArray));
+      // writer.newLine();
       // System.out.println(maxArea(parsedArray));
       // System.out.println(parsedArray.toString());
     }
