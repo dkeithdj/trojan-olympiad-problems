@@ -32,14 +32,14 @@ public class GenerateParentheses {
   }
 
   public static void main(String[] args) throws IOException {
-    // Scanner infile = new Scanner(System.in);
-    Scanner infile = new Scanner(new FileReader("GenerateParentheses.in"));
+    Scanner infile = new Scanner(System.in);
+    // Scanner infile = new Scanner(new FileReader("GenerateParentheses.in"));
     // BufferedWriter writer = new BufferedWriter(new
     // FileWriter("GenerateParentheses.ans"));
-    List<String> ans = new ArrayList<>();
-    String s = "";
-    while (infile.hasNext()) {
+    while (infile.hasNextLine()) {
       int num = Integer.parseInt(infile.nextLine());
+      List<String> ans = new ArrayList<>();
+      String s = "";
       // System.out.println(infile.nextLine());
       generateParenthesis(num, num, s, ans);
       // writer.write(ans.toString());
