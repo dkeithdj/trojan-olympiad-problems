@@ -2,10 +2,13 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Scanner;
 import java.util.stream.Collectors;
+// correct
 
 public class NoSuchThingAsTooMuch {
 
@@ -14,6 +17,17 @@ public class NoSuchThingAsTooMuch {
   public NoSuchThingAsTooMuch(File input) {
     inputNumbers = fileToStringList(input).stream().map(s -> Integer.parseInt(s))
         .collect(Collectors.toList());
+  }
+
+  public NoSuchThingAsTooMuch(InputStream in) {
+    Scanner sc = new Scanner(in);
+    List<Integer> content = new ArrayList<>();
+
+    while (sc.hasNextLine()) {
+      content.add(Integer.parseInt(sc.nextLine()));
+    }
+    inputNumbers = content;
+
   }
 
   public int run1() {
@@ -46,10 +60,9 @@ public class NoSuchThingAsTooMuch {
   }
 
   public static void main(String[] args) {
-    NoSuchThingAsTooMuch test = new NoSuchThingAsTooMuch(
-        new File("NoSuchThingAsTooMuch.in"));
+    NoSuchThingAsTooMuch test = new NoSuchThingAsTooMuch(System.in);
     System.out.println(test.run1());
-    System.out.println(test.run2());
+    // System.out.println(test.run2());
   }
 
   private static class Counter {
@@ -71,6 +84,7 @@ public class NoSuchThingAsTooMuch {
   public static List<String> fileToStringList(File file) {
     List<String> content = new ArrayList<>();
     try {
+      // Scanner br = new Scanner(System.in);
       BufferedReader br = new BufferedReader(new FileReader(file));
       String line = "";
       while ((line = br.readLine()) != null) {
@@ -82,4 +96,27 @@ public class NoSuchThingAsTooMuch {
     }
     return content;
   }
+
+  public static List<Integer> parseStringToIntArray(String inputString) {
+    if (inputString.isEmpty() || !inputString.startsWith("[") || !inputString.endsWith("]")) {
+      throw new IllegalArgumentException("Invalid input format. Expected: [element1, element2, ...] ");
+    }
+
+    String[] stringArray = inputString.substring(1, inputString.length() - 1).split(","); // Remove brackets and split
+                                                                                          // by comma
+
+    List<Integer> parsedArray = new ArrayList<>();
+    for (int i = 0; i < stringArray.length; i++) {
+      try {
+        parsedArray.add(Integer.parseInt(stringArray[i].trim()));
+        // parsedArray[i] = Integer.parseInt(stringArray[i].trim()); // Remove
+        // leading/trailing spaces and parse to int
+      } catch (NumberFormatException e) {
+        throw new IllegalArgumentException("Invalid element format. Expected integers only: " + e.getMessage());
+      }
+    }
+
+    return parsedArray;
+  }
+
 }

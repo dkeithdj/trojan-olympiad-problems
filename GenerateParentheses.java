@@ -32,18 +32,20 @@ public class GenerateParentheses {
   }
 
   public static void main(String[] args) throws IOException {
+    // Scanner infile = new Scanner(System.in);
     Scanner infile = new Scanner(new FileReader("GenerateParentheses.in"));
-    BufferedWriter writer = new BufferedWriter(new FileWriter("GenerateParentheses.ans"));
+    // BufferedWriter writer = new BufferedWriter(new
+    // FileWriter("GenerateParentheses.ans"));
+    List<String> ans = new ArrayList<>();
+    String s = "";
     while (infile.hasNext()) {
       int num = Integer.parseInt(infile.nextLine());
       // System.out.println(infile.nextLine());
-      List<String> ans = new ArrayList<>();
-      String s = "";
       generateParenthesis(num, num, s, ans);
       // writer.write(ans.toString());
       // writer.newLine();
+      System.out.println(ans);
 
-      // System.out.println(ans);
     }
   }
 }
