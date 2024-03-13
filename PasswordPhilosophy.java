@@ -7,8 +7,10 @@ import java.util.Scanner;
 public class PasswordPhilosophy {
   public static void main(String[] args) throws IOException {
     // Scanner in = new Scanner(new FileReader("PasswordPhilosophy.in"));
-    BufferedWriter writer = new BufferedWriter(new FileWriter("PasswordPhilosophy.ans"));
-    try (Scanner in = new Scanner(new FileReader("PasswordPhilosophy.in"))) {
+    // BufferedWriter writer = new BufferedWriter(new
+    // FileWriter("PasswordPhilosophy.ans"));
+    try (Scanner in = new Scanner(System.in)) {
+      // try (Scanner in = new Scanner(new FileReader("PasswordPhilosophy.in"))) {
       int count = 0;
 
       while (in.hasNextLine()) {
@@ -26,7 +28,7 @@ public class PasswordPhilosophy {
       }
 
       System.out.println(count);
-      writer.write(count);
+      // writer.write(count);
     }
   }
 }
