@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class ChronalCalibrationSolution {
+public class ChronalCalibration {
 
 	public static void main(String[] args) throws FileNotFoundException {
 
